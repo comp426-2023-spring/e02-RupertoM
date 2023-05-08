@@ -1,8 +1,95 @@
 body {
+    font-family: Georgia, 'Times New Roman', Times, serif;
+    background-color: #9ce1ff;
 }
 
 h1 {
+    text-align: center;
+    font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+    color: rgb(0, 0, 0);
+    text-decoration: underline;
 }
 
-p {
+h2 {
+    text-align: center;
+}
+
+.game_div, .results_div, .rules_div {
+    width: 100%;
+    max-width: 60%;
+    margin: 0 auto;
+    padding-left: 2em;
+    padding-right: 2em;
+    padding-bottom: 2em;
+    border-radius: 4em;
+    background-color: #fff;
+    border: 1px solid #ccc;
+    box-shadow: 0 1px 3px rgba(0, 0, 0, 0.12), 0 1px 2px rgba(0, 0, 0, 0.24);
+}
+
+.game-mode, .opponent, .move-choice {
+    width: 80%;
+    text-align: center;
+    margin: 0 auto;
+    display: flex;
+    flex-direction: column;
+    margin-bottom: 10px;
+}
+
+label {
+    margin-bottom: 5px;
+}
+
+select {
+    padding: 8px;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    font-size: 14px;
+}
+
+.game_div {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    text-align: center;
+}
+
+.results_div {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    text-align: center;
+}
+
+li {
+    padding-bottom: 1rem;
+    text-align: center;
+    list-style-type: none;
+}
+
+.rules-link {
+    display: block;
+    margin-top: 1rem;
+    color: #6d6c6c;
+    text-decoration: none;
+    font-style: bold;
+}
+
+.rules-link:hover {
+    font-style: italic;
+}
+
+.back-button {
+    display: block;
+    margin-top: 1rem;
+    color: #6d6c6c;
+    text-decoration: none;
+    font-style: bold;
+    align-self: center;
+}
+
+.back-button:hover {
+    font-style: italic;
 }
