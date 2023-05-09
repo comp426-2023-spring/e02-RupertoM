@@ -42,7 +42,7 @@ function updateShots() {
     showShots();
 }
 
-async function sendPlayCallOpp(gameType, playerShot) {
+async function sendOppShot(gameType, playerShot) {
     try {
       const response = await fetch(`/app/play/${gameType}/${playerShot}`);
       const data = await response.json();
@@ -52,7 +52,7 @@ async function sendPlayCallOpp(gameType, playerShot) {
     }
 }
 
-async function sendPlayCallNoOpp(gameType) {
+async function sendNoOppShot(gameType) {
   try {
     const response = await fetch(`/app/play/${gameType}`);
     const data = await response.json();
@@ -64,14 +64,14 @@ async function sendPlayCallNoOpp(gameType) {
   
 async function playGame() {
     console.log("game played")
-    const opponent = document.getElementById('opponent-type').value;
+    const opponent = document.getElementById('opponent-choice').value;
     const game = document.getElementById('game-type').value;
     let gameResult;
     if(opponent == "opp") {
         const playerShot = document.getElementById('shot').value;
-        gameResult = await sendPlayCallOpp(game, playerShot);
+        gameResult = await sendOppShot(game, playerShot);
     } else {
-        gameResult = await sendPlayCallNoOpp(game);
+        gameResult = await sendNoOppShot(game);
     }
     localStorage.setItem('gameResult', JSON.stringify(gameResult));
   }
