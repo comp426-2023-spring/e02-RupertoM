@@ -42,41 +42,48 @@ document.addEventListener('DOMContentLoaded', () => {
   }
   
   async function sendOppShot(gameType, playerShot) {
-      const options = ["rock", "paper", "scissors", "lizard", "spock"];
-      const sim = options[Math.floor(Math.random() * options.length)];
-      
-      const result = determineResult(options, playerShot, sim);
-      return {"player": playerShot, "opponent": sim, "result": result};
+    try {
+        const response = await fetch(`/app/play/${gameType}/${playerShot}`);
+        const data = await response.json();
+        return data;
+      } catch (error) {
+        console.error('Error:', error);
+      }
   }
   
   async function sendNoOppShot(gameType) {
-      const options = ["rock", "paper", "scissors", "lizard", "spock"];
-      const sim = options[Math.floor(Math.random() * options.length)];
-      return {"player": sim};
-  }
+    try {
+        const response = await fetch(`/app/play/${gameType}`);
+        const data = await response.json();
+        return data;
+      } catch (error) {
+        console.error('Error:', error);
+      }
+    }
   
   async function playGame() {
-      const opponent = document.getElementById('opponent-choice').value;
-      const game = document.getElementById('game-type').value;
-      let gameResult;
-      if(opponent == "opp") {
-          const playerShot = document.getElementById('shot').value;
-          gameResult = await sendOppShot(game, playerShot);
-      } else {
-          gameResult = await sendNoOppShot(game);
-      }
-      localStorage.setItem('gameResult', JSON.stringify(gameResult));
+    const opponent = document.getElementById('opponent-choice').value;
+    const game = document.getElementById('game-type').value;
+    let gameResult;
+    if(opponent == "opp") {
+        const playerShot = document.getElementById('shot').value;
+        gameResult = await sendOppShot(game, playerShot);
+    } else {
+        gameResult = await sendNoOppShot(game);
+    }
+    // Save gameResult and opponentType to localStorage
+    localStorage.setItem('gameResult', JSON.stringify(gameResult));
   }
   
-  function determineResult(options, playerShot, sim) {
-      const indexShot = options.indexOf(playerShot.toLowerCase());
-      const indexSim = options.indexOf(sim);
+//   function determineResult(options, playerShot, sim) {
+//       const indexShot = options.indexOf(playerShot.toLowerCase());
+//       const indexSim = options.indexOf(sim);
       
-      if (indexShot === indexSim) {
-          return "tie";
-      } else if ((indexShot + 1) % options.length === indexSim || (indexShot + 3) % options.length === indexSim) {
-          return "lose";
-      } else {
-          return "win";
-      }
-  }
+//       if (indexShot === indexSim) {
+//           return "tie";
+//       } else if ((indexShot + 1) % options.length === indexSim || (indexShot + 3) % options.length === indexSim) {
+//           return "lose";
+//       } else {
+//           return "win";
+//       }
+//   }
