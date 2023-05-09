@@ -14,6 +14,37 @@ h2 {
     text-align: center;
 }
 
+.image_div, .bottom_image_div {
+    display: flex;
+    justify-content: space-between;
+}
+
+.spock {
+    margin-bottom: 20px;
+    margin-top: 20px;
+    max-width: 50px;
+    max-height: 50px;
+}
+
+.lizard {
+    margin-bottom: 20px;
+    margin-top: 20px;
+    max-width: 50px;
+    max-height: 50px;
+}
+
+.rock {
+    margin-top: 20px;
+    max-width: 50px;
+    max-height: 50px;
+}
+
+.paper {
+    margin-top: 20px;
+    max-width: 50px;
+    max-height: 50px;
+}
+
 .game_div, .results_div, .rules_div {
     width: 100%;
     max-width: 60%;
@@ -92,4 +123,18 @@ li {
 
 .back-button:hover {
     font-style: italic;
+}
+
+.play-button, .play-again-button {
+  display: inline-block;
+  height: 4rem;
+  width: 4rem;
+  border-radius: 50%;
+  background-color: rgb(0, 255, 179);
+  color: rgb(0, 0, 0);
+  font-size: 1.2rem;
+  text-align: center;
+  line-height: 60px;
+  text-decoration: none;
+  cursor: pointer;
 }

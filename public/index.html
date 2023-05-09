@@ -8,10 +8,14 @@
 </head>
 <body>
     <div class="game_div">
+        <div class = "image_div">
+            <img class="spock" src="/public/img/spock.jpg" alt="Spock Design">
+            <img class="lizard" src="/public/img/lizard.jpg" alt="Lizard Design">
+        </div>
         <h1>PLAY RPS/RPSLS</h1>
             <div class="game-mode">
                 <label for="game-type">Game Mode:</label>
-                <select id="game-type" onchange="updateMoveOptions()">
+                <select id="game-type" onchange="updateShots()">
                     <option value="game-mode">Click here to select a game mode</option>
                     <option value="rps">Rock, Paper, Scissors</option>
                     <option value="rpsls">Rock, Paper, Scissors, Lizard, Spock</option>
@@ -19,19 +23,23 @@
             </div>
             <div class="opponent">
                 <label for="opponent-choice">Choose your opponent:</label>
-                <select id="opponent-choice" onchange="showMoveSelection()">
+                <select id="opponent-choice" onchange="showShots()">
                     <option value="play-mode">Click here to select an opponent type</option>
                     <option value="opp">Play with an opponent</option>
                     <option value="no-opp">Play without an opponent (Randomized Computer)</option>
                 </select>
             </div>
-            <div class="move-choice" style="display: none;">
-                <label for="player-move">Choose your move:</label>
-                <select id="player-move">
+            <div class="shot-choice" style="display: none;">
+                <label for="shot">What shall you shoot?:</label>
+                <select id="shot">
                 </select>
             </div>
-            <button id="play-button" class="play-button" onclick="window.location.href='results.html'" type="button" disabled>Play</button>
+            <button id="play-button" class="play-button" onclick="window.location.href='results-view.html'" type="button" disabled>Play</button>
             <a href="rules.html" class="rules-link">Game rules</a>
+            <div class = "bottom_image_div">
+                <img class="paper" src="/public/img/paper.jpg" alt="Paper Design">
+                <img class="rock" src="/public/img/rock.jpg" alt="Rock Design">
+            </div>
         </div>
     <script src="scripts.js"></script>
 </body>
