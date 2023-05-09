@@ -1,4 +1,4 @@
-import { rps, rpsls } from './rpsls.js';
+// import { rps, rpsls } from './rpsls.js';
 
 document.addEventListener('DOMContentLoaded', () => {
   document.getElementById('game-type').addEventListener('change', updateShots);
@@ -7,37 +7,18 @@ document.addEventListener('DOMContentLoaded', () => {
 });
 
 function showShots() {
-    console.log("showShots called");
     const gameType = document.getElementById('game-type').value;
     const opponentChoice = document.getElementById('opponent-choice').value;
     const playButton = document.getElementById('play-button');
-    const shotSelect = document.getElementById('shot');
-    let shots = [];
-
-    if (gameType === 'rps') {
-        shots = ['rock', 'paper', 'scissors'];
-    } else if (gameType === 'rpsls') {
-        shots = ['rock', 'paper', 'scissors', 'lizard', 'spock'];
-    }
-
-    if (opponentChoice === 'opp') {
-        console.log("showShots called");
-        shotSelect.innerHTML = '';
-        for (const s of shots) {
-            const option = document.createElement('option');
-            option.value = s;
-            option.textContent = s.charAt(0).toUpperCase() + s.slice(1);
-            shotSelect.appendChild(option);
-        }
-        document.querySelector('.shot-choice').style.display = 'block';
-    } else {
-        document.querySelector('.shot-choice').style.display = 'none';
-        shotSelect.innerHTML = '';
-    }
 
     if (gameType && opponentChoice) {
+        console.log("showShots called");
         playButton.disabled = false;
+        if(opponentChoice == "opp") {
+            document.querySelector('.shot-choice').style.display = 'block';
+        }
     } else {
+        document.querySelector('.shot-choice').style.display = 'none';
         playButton.disabled = true;
     }
 }
