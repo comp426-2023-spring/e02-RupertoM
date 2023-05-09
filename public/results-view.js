@@ -1,5 +1,6 @@
 try {
     const gameResult = JSON.parse(localStorage.getItem('gameResult'));
+    console.log(gameResult)
 
     const randomShotElem = document.getElementById('random-shot');
     const playerShotElem = document.getElementById('player-shot');
@@ -7,7 +8,7 @@ try {
     const gameResultElem = document.getElementById('game-result');
 
     randomShotElem.textContent = gameResult.player;
-    playerShotElem.textContent = gameResult.player;
+    playerShotElem.textContent = gameResult.player
     opponentShotElem.textContent = gameResult.opponent;
     gameResultElem.textContent = gameResult.result;
 
