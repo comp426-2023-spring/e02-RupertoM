@@ -1,5 +1,3 @@
-// import { rps, rpsls } from './rpsls.js';
-
 document.addEventListener('DOMContentLoaded', () => {
   document.getElementById('game-type').addEventListener('change', updateShots);
   document.getElementById('opponent-choice').addEventListener('change', showShots);
@@ -44,7 +42,7 @@ function updateShots() {
     showShots();
 }
 
-async function sendPlayCallWith(gameType, playerShot) {
+async function sendPlayCallOpp(gameType, playerShot) {
     try {
       const response = await fetch(`/app/play/${gameType}/${playerShot}`);
       const data = await response.json();
@@ -54,7 +52,7 @@ async function sendPlayCallWith(gameType, playerShot) {
     }
 }
 
-async function sendPlayCallWithout(gameType) {
+async function sendPlayCallNoOpp(gameType) {
   try {
     const response = await fetch(`/app/play/${gameType}`);
     const data = await response.json();
@@ -69,11 +67,11 @@ async function playGame() {
     const opponent = document.getElementById('opponent-type').value;
     const game = document.getElementById('game-type').value;
     let gameResult;
-    if(opponent == "with") {
+    if(opponent == "opp") {
         const playerShot = document.getElementById('shot').value;
-        gameResult = await sendPlayCallWith(game, playerShot);
+        gameResult = await sendPlayCallOpp(game, playerShot);
     } else {
-        gameResult = await sendPlayCallWithout(game);
+        gameResult = await sendPlayCallNoOpp(game);
     }
     localStorage.setItem('gameResult', JSON.stringify(gameResult));
   }
