@@ -1,6 +1,5 @@
 try {
     const gameResult = JSON.parse(localStorage.getItem('gameResult'));
-    console.log(gameResult);
 
     const randomShotElem = document.getElementById('random-shot');
     const playerShotElem = document.getElementById('player-shot');
@@ -14,7 +13,7 @@ try {
 
     const opponentLineElem = document.getElementById('opponent-line');
     const resultLineElem = document.getElementById('result-line');
-    const playerLineElem = document.getElementById('player-line');
+    const playerLineElem = document.getElementById('shot-line');
     const randomLineElem = document.getElementById('random-line');
 
     if (!gameResult.opponent) {

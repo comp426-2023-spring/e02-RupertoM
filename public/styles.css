@@ -1,51 +1,32 @@
 body {
     font-family: Georgia, 'Times New Roman', Times, serif;
     background-color: #9ce1ff;
-}
-
-h1 {
+  }
+  
+  h1 {
     text-align: center;
     font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
-    color: rgb(0, 0, 0);
+    color: #000;
     text-decoration: underline;
-}
-
-h2 {
+  }
+  
+  h2 {
     text-align: center;
-}
-
-.image_div, .bottom_image_div {
+  }
+  
+  .image_div, .bottom_image_div {
     display: flex;
     justify-content: space-between;
-}
-
-.spock {
+  }
+  
+  .spock, .lizard, .rock, .paper {
+    margin-top: 20px;
     margin-bottom: 20px;
-    margin-top: 20px;
     max-width: 50px;
     max-height: 50px;
-}
-
-.lizard {
-    margin-bottom: 20px;
-    margin-top: 20px;
-    max-width: 50px;
-    max-height: 50px;
-}
-
-.rock {
-    margin-top: 20px;
-    max-width: 50px;
-    max-height: 50px;
-}
-
-.paper {
-    margin-top: 20px;
-    max-width: 50px;
-    max-height: 50px;
-}
-
-.game_div, .results_div, .rules_div {
+  }
+  
+  .game_div, .results_div, .rules_div {
     width: 100%;
     max-width: 60%;
     margin: 0 auto;
@@ -56,99 +37,68 @@ h2 {
     background-color: #fff;
     border: 1px solid #ccc;
     box-shadow: 0 1px 3px rgba(0, 0, 0, 0.12), 0 1px 2px rgba(0, 0, 0, 0.24);
-}
-
-.game-mode, .opponent, .move-choice {
+  }
+  
+  .game-mode, .opponent, .move-choice {
     width: 80%;
-    text-align: center;
     margin: 0 auto;
+    text-align: center;
     display: flex;
     flex-direction: column;
     margin-bottom: 10px;
-}
-
-label {
+  }
+  
+  label {
     margin-bottom: 5px;
-}
-
-select {
+  }
+  
+  select {
     padding: 8px;
     border: 1px solid #ccc;
     border-radius: 4px;
     font-size: 14px;
-}
-
-.game_div {
+  }
+  
+  .game_div, .results_div {
     position: absolute;
     top: 50%;
     left: 50%;
     transform: translate(-50%, -50%);
     text-align: center;
-}
-
-.results_div {
-    position: absolute;
-    top: 50%;
-    left: 50%;
-    transform: translate(-50%, -50%);
-    text-align: center;
-}
-
-li {
-    padding-bottom: 1rem;
+  }
+  
+  li {
     text-align: center;
     list-style-type: none;
-}
-
-.rules-link {
+    padding-bottom: 1rem;
+  }
+  
+  .rules-link, .back-button {
     display: block;
     margin-top: 1rem;
     color: #6d6c6c;
+    font-weight: bold;
     text-decoration: none;
-    font-style: bold;
-}
-
-.rules-link:hover {
+  }
+  
+  .rules-link:hover, .back-button:hover {
     font-style: italic;
-}
-
-.back-button {
-    display: block;
-    margin-top: 1rem;
-    color: #6d6c6c;
-    text-decoration: none;
-    font-style: bold;
-    align-self: center;
-}
-
-.back-button:hover {
-    font-style: italic;
-}
-
-.play-button {
-  display: inline-block;
-  height: 4rem;
-  width: 4rem;
-  border-radius: 50%;
-  background-color: rgb(0, 255, 179);
-  color: rgb(0, 0, 0);
-  font-size: 1.2rem;
-  text-align: center;
-  line-height: 60px;
-  text-decoration: none;
-  cursor: pointer;
-}
-
-.play-again-button {
+  }
+  
+  .play-button, .play-again-button {
     display: inline-block;
     height: 4rem;
     width: 4rem;
     border-radius: 50%;
-    background-color: rgb(0, 255, 179);
-    color: rgb(0, 0, 0);
+    background-color: #0fffb3;
+    color: #000;
     font-size: 1rem;
     text-align: center;
     line-height: 60px;
     text-decoration: none;
     cursor: pointer;
+  }
+  
+  #random-shot, #player-shot, #opponent-shot, #result-line {
+    text-transform: capitalize;
   }
