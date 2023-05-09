@@ -1,3 +1,5 @@
+import { rps, rpsls } from './rpsls.js';
+
 document.addEventListener('DOMContentLoaded', () => {
   document.getElementById('game-type').addEventListener('change', updateShots);
   document.getElementById('opponent-choice').addEventListener('change', showShots);
@@ -75,3 +77,5 @@ async function playGame() {
     }
     localStorage.setItem('gameResult', JSON.stringify(gameResult));
   }
+
+  

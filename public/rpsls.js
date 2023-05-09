@@ -1,120 +1,36 @@
-import minimist from 'minimist'
-
-export function rps(shot = null) {
-    const options = ["rock", "paper", "scissors"]
-    const sim = options[Math.floor(Math.random() * options.length)]
+function rps(shot = null) {
+    const options = ["rock", "paper", "scissors"];
+    return playRPS(options, shot);
+  }
+  
+  function rpsls(shot = null) {
+    const options = ["rock", "paper", "scissors", "lizard", "spock"];
+    return playRPS(options, shot);
+  }
+  
+  function playRPS(options, shot) {
+    const sim = options[Math.floor(Math.random() * options.length)];
+  
     if (!shot) {
-        return `{"player":"${sim}"}`
+      return { player: sim };
     }
-    if (shot.toLowerCase() == sim) {
-        return `{"player":"${shot}","opponent":"${sim}","result":"tie"}`
+  
+    const result = determineResult(options, shot, sim);
+    return { player: shot, opponent: sim, result: result };
+  }
+  
+  function determineResult(options, shot, sim) {
+    const indexShot = options.indexOf(shot.toLowerCase());
+    const indexSim = options.indexOf(sim);
+  
+    if (indexShot === indexSim) {
+      return "tie";
+    } else if (
+      (indexShot + 1) % options.length === indexSim ||
+      (indexShot + 3) % options.length === indexSim
+    ) {
+      return "lose";
+    } else {
+      return "win";
     }
-    if (shot.toLowerCase() == 'rock') {
-        if (sim == 'paper') {
-            return `{"player":"${shot}","opponent":"${sim}","result":"lose"}`
-        }
-        if (sim == 'scissors') {
-            return `{"player":"${shot}","opponent":"${sim}","result":"win"}`
-        }
-    }
-    if (shot.toLowerCase() == 'paper') {
-        if (sim == 'rock') {
-            return `{"player":"${shot}","opponent":"${sim}","result":"win"}`
-        }
-        if (sim == 'scissors') {
-            return `{"player":"${shot}","opponent":"${sim}","result":"lose"}`
-        }
-    }
-    if (shot.toLowerCase() == 'scissors') {
-        if (sim == 'rock') {
-            return `{"player":"${shot}","opponent":"${sim}","result":"lose"}`
-        }
-        if (sim == 'paper') {
-            return `{"player":"${shot}","opponent":"${sim}","result":"tie"}`
-        }
-    }
-}
-
-export function rpsls(shot = null) {
-    const options = ["rock", "paper", "scissors", "lizard", "spock"]
-    const sim = options[Math.floor(Math.random() * options.length)]
-    
-    if (!shot) {
-        return `{"player":"${sim}"}`
-    }
-    if (shot.toLowerCase() == sim) {
-        return `{"player":"${shot}","opponent":"${sim}","result":"tie"}`
-    }
-    if (shot.toLowerCase() == 'rock') {
-        if (sim == 'paper') {
-            return `{"player":"${shot}","opponent":"${sim}","result":"lose"}`
-        }
-        if (sim == 'scissors') {
-            return `{"player":"${shot}","opponent":"${sim}","result":"win"}`
-        }
-        if (sim == 'lizard') {
-            return `{"player":"${shot}","opponent":"${sim}","result":"win"}`
-        }
-        if (sim == 'spock') {
-            return `{"player":"${shot}","opponent":"${sim}","result":"lose"}`
-        }
-    }
-    
-    if (shot.toLowerCase() == 'paper') {
-        if (sim == 'rock') {
-            return `{"player":"${shot}","opponent":"${sim}","result":"win"}`
-        }
-        if (sim == 'scissors') {
-            return `{"player":"${shot}","opponent":"${sim}","result":"lose"}`
-        }
-        if (sim == 'lizard') {
-            return `{"player":"${shot}","opponent":"${sim}","result":"lose"}`
-        }
-        if (sim == 'spock') {
-            return `{"player":"${shot}","opponent":"${sim}","result":"win"}`
-        }
-    }
-    
-    if (shot.toLowerCase() == 'scissors') {
-        if (sim == 'rock') {
-            return `{"player":"${shot}","opponent":"${sim}","result":"lose"}`
-        }
-        if (sim == 'paper') {
-            return `{"player":"${shot}","opponent":"${sim}","result":"win"}`
-        }
-        if (sim == 'lizard') {
-            return `{"player":"${shot}","opponent":"${sim}","result":"win"}`
-        }
-        if (sim == 'spock') {
-            return `{"player":"${shot}","opponent":"${sim }","result":"lose"}`
-        }
-    }
-    if (shot.toLowerCase() == 'lizard') {
-        if (sim == 'rock') {
-            return `{"player":"${shot}","opponent":"${sim}","result":"lose"}`
-        }
-        if (sim == 'paper') {
-            return `{"player":"${shot}","opponent":"${sim}","result":"win"}`
-        }
-        if (sim == 'scissors') {
-            return `{"player":"${shot}","opponent":"${sim}","result":"lose"}`
-        }
-        if (sim == 'spock') {
-            return `{"player":"${shot}","opponent":"${sim}","result":"win"}`
-        }
-    }
-    if (shot.toLowerCase() == 'spock') {
-        if (sim == 'rock') {
-            return `{"player":"${shot}","opponent":"${sim}","result":"lose"}`
-        }
-        if (sim == 'paper') {
-            return `{"player":"${shot}","opponent":"${sim}","result":"win"}`
-        }
-        if (sim == 'scissors') {
-            return `{"player":"${shot}","opponent":"${sim}","result":"win"}`
-        }
-        if (sim == 'lizard') {
-            return `{"player":"${shot}","opponent":"${sim}","result":"lose"}`
-        }
-    }
-}
+  }
